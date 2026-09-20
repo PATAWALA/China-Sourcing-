@@ -1,10 +1,12 @@
 import type { Metadata, Viewport } from "next";
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
+import { site } from "@/data/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "China Sourcing / Guangzhou — Achat & Expédition Chine → Afrique",
-  description:
-    "Sourcing, contrôle qualité et expédition de fret depuis Guangzhou vers le Cameroun, la RDC, la Côte d'Ivoire, le Sénégal et le Gabon.",
+  title: `${site.name} — Sourcing & Fret Chine → Afrique`,
+  description: site.description,
 };
 
 export const viewport: Viewport = {
@@ -19,7 +21,11 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="fr">
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }
