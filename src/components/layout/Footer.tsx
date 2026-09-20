@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MapPin, Mail } from "lucide-react";
+import { MapPin, Mail, Phone } from "lucide-react";
 import { site } from "@/data/site";
 import { Container } from "@/components/ui/Container";
 
@@ -29,7 +29,10 @@ export function Footer() {
             <ul className="mt-4 flex flex-col gap-2.5">
               {site.nav.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-[13px] text-zinc-500 transition-colors hover:text-zinc-900">
+                  <Link
+                    href={link.href}
+                    className="text-[13px] text-zinc-500 transition-colors hover:text-zinc-900"
+                  >
                     {link.label}
                   </Link>
                 </li>
@@ -50,7 +53,11 @@ export function Footer() {
                 <Mail className="h-3.5 w-3.5 text-zinc-400" strokeWidth={1.75} />
                 {site.email}
               </li>
-              <li>WhatsApp : {site.whatsapp.display}</li>
+              {/* WhatsApp en texte simple, pas un bouton */}
+              <li className="inline-flex items-center gap-2">
+                <Phone className="h-3.5 w-3.5 text-zinc-400" strokeWidth={1.75} />
+                {site.whatsapp.display}
+              </li>
             </ul>
           </div>
         </div>

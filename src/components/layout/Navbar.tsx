@@ -3,11 +3,11 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Menu, X, MessageSquare } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { site } from "@/data/site";
 import { cn } from "@/lib/utils";
 import { Container } from "@/components/ui/Container";
-import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import { Button } from "@/components/ui/Button";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -44,16 +44,11 @@ export function Navbar() {
           })}
         </nav>
 
+        {/* CTA unique : la demande */}
         <div className="hidden md:block">
-          <a
-            href={buildWhatsAppUrl({ context: "Prise de contact depuis le site" })}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex h-9 items-center gap-2 rounded-lg bg-emerald-600 px-3.5 text-[13px] font-medium text-white transition-colors hover:bg-emerald-700"
-          >
-            <MessageSquare className="h-3.5 w-3.5" strokeWidth={1.75} />
-            WhatsApp
-          </a>
+          <Button href="/#contact" variant="primary">
+            Demander un devis
+          </Button>
         </div>
 
         <button
@@ -79,15 +74,11 @@ export function Navbar() {
                 {item.label}
               </Link>
             ))}
-            <a
-              href={buildWhatsAppUrl({ context: "Prise de contact depuis le menu mobile" })}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-2 flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-4 py-3 text-[14px] font-medium text-white"
-            >
-              <MessageSquare className="h-4 w-4" strokeWidth={1.75} />
-              Contacter sur WhatsApp
-            </a>
+            <div className="mt-2">
+              <Button href="/#contact" size="md" variant="primary" className="w-full">
+                Demander un devis
+              </Button>
+            </div>
           </Container>
         </div>
       )}

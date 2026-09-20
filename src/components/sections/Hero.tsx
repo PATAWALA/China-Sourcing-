@@ -1,9 +1,8 @@
-import { ArrowRight, MessageSquare } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { site } from "@/data/site";
-import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 export function Hero() {
   return (
@@ -29,20 +28,10 @@ export function Hero() {
             la RDC, la Côte d'Ivoire, le Sénégal et le Gabon. Un interlocuteur unique, de A à Z.
           </p>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-8">
             <Button href="#contact" size="lg" variant="primary">
               Démarrer ma demande
               <ArrowRight className="h-4 w-4" strokeWidth={1.75} />
-            </Button>
-            <Button
-              href={buildWhatsAppUrl({ context: "Contact rapide depuis l'accueil" })}
-              size="lg"
-              variant="whatsapp"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <MessageSquare className="h-4 w-4" strokeWidth={1.75} />
-              WhatsApp direct
             </Button>
           </div>
 
