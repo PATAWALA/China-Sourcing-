@@ -1,4 +1,4 @@
-import { PageHero } from "@/components/sections/PageHero";
+import { PageHero } from "@/components/ui/PageHero";
 import { Stats } from "@/components/sections/Stats";
 import { Container } from "@/components/ui/Container";
 
