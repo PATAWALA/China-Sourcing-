@@ -1,24 +1,21 @@
-import { Footer } from "@/components/hub/Footer";
-import { Header } from "@/components/hub/Header";
-import { OrientationWizard } from "@/components/hub/OrientationWizard";
-import { TrustBadges } from "@/components/hub/TrustBadges";
+import { Hero } from "@/components/sections/Hero";
+import { TrustBadges } from "@/components/sections/TrustBadges";
+import { Services } from "@/components/sections/Services";
+import { Process } from "@/components/sections/Process";
+import { Destinations } from "@/components/sections/Destinations";
+import { FAQ } from "@/components/sections/FAQ";
+import { QualifiedForm } from "@/components/sections/QualifiedForm";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <main className="min-h-dvh bg-zinc-50">
-      <div className="mx-auto flex min-h-dvh w-full max-w-md flex-col px-5 py-8">
-        <Header />
-
-        <div className="mt-7">
-          <OrientationWizard />
-        </div>
-
-        <div className="mt-5">
-          <TrustBadges />
-        </div>
-
-        <Footer />
-      </div>
-    </main>
+    <>
+      <Hero />
+      <TrustBadges />
+      <Services />
+      <Process />
+      <Destinations />
+      <FAQ />
+      <QualifiedForm />
+    </>
   );
 }

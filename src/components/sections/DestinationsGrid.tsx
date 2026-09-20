@@ -1,0 +1,44 @@
+import { MapPin } from "lucide-react";
+import { destinations } from "@/data/destinations";
+import { Container } from "@/components/ui/Container";
+import { Section } from "@/components/ui/Section";
+
+export function DestinationsGrid() {
+  return (
+    <Section>
+      <Container>
+        <div className="max-w-2xl">
+          <p className="text-[12px] font-medium uppercase tracking-[0.14em] text-zinc-400">Destinations</p>
+          <h2 className="mt-3 text-[28px] font-semibold leading-tight tracking-tight text-zinc-900 sm:text-[36px]">
+            Cinq marchés africains, maîtrisés.
+          </h2>
+        </div>
+
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {destinations.map((d) => (
+            <div key={d.country} className="rounded-2xl border border-zinc-200 bg-white p-5">
+              <div className="flex items-center justify-between">
+                <span className="text-[12px] font-semibold uppercase tracking-wider text-zinc-400">
+                  {d.flag}
+                </span>
+                <span className="text-[11px] text-zinc-400">{d.leadTime}</span>
+              </div>
+              <h3 className="mt-3 text-[16px] font-semibold text-zinc-900">{d.country}</h3>
+              <ul className="mt-3 flex flex-wrap gap-1.5">
+                {d.cities.map((c) => (
+                  <li
+                    key={c}
+                    className="inline-flex items-center gap-1 rounded-full border border-zinc-200 bg-zinc-50 px-2 py-1 text-[11px] text-zinc-600"
+                  >
+                    <MapPin className="h-3 w-3 text-zinc-400" strokeWidth={1.75} />
+                    {c}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </Container>
+    </Section>
+  );
+}
